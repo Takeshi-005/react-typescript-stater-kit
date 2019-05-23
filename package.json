@@ -1,28 +1,75 @@
 {
-  "name": "typescript-react-stater-kit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "react-typescript-stater-kit",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "24.0.13",
+    "@types/node": "12.0.2",
+    "@types/react": "^16.8.18",
+    "@types/react-dom": "16.8.4",
+    "@types/react-router": "^5.0.1",
+    "@types/react-router-dom": "^4.3.3",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.87.1",
+    "typescript": "3.4.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "lint": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'; stylelint 'src/**/*.css'"
   },
-  "author": "",
-  "license": "ISC",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not ie <= 11",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@types/react": "^16.8.5",
-    "@types/react-dom": "^16.8.2",
-    "@types/react-redux": "^7.0.1",
-    "@types/react-router-dom": "^4.3.1",
-    "jest": "^24.1.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-redux": "^6.0.1",
-    "react-router-dom": "^4.3.1",
-    "react-router-redux": "^4.0.8",
-    "redux": "^4.0.1",
-    "typescript": "^3.3.3333",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "prettier": "^1.17.1",
+    "prettier-stylelint": "^0.4.2",
+    "stylelint": "^10.0.1",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.0"
   },
-  "dependencies": {}
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
 }
