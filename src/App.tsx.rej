@@ -1,0 +1,4 @@
+diff a/src/App.tsx b/src/App.tsx	(rejected hunks)
+@@ -24 +24 @@ const App: React.FC = () => {
+-}
++};
