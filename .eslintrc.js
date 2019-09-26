@@ -1,48 +1,47 @@
-const path = require("path");
-
 module.exports = {
   env: {
     browser: true,
     es6: true,
     node: true,
+    'jest/globals': true
   },
   extends: [
-    "plugin:@typescript-eslint/recommended",
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "prettier/react"
+    'plugin:prettier/recommended',
+    'prettier',
+    'prettier/@typescript-eslint',
+    'prettier/react'
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     '__DEV__': true
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
     },
-    project: "./tsconfig.json",
+    project: './tsconfig.json',
     sourceType: 'module'
   },
   plugins: [
-    "@typescript-eslint",
-    'react',
+    '@typescript-eslint',
+    'jest',
+    'prettier',
     'prefer-arrow',
+    'react',
     'react-hooks'
   ],
-  root: true, //このプロジェクト内のみに適用 (デフォルトは親ディレクトリまで遡って適用する)
+  root: true,
   settings: {
     'import/resolver': {
-      // eslint-import-resolver-webpackを使用する
-      webpack: {
-        config: path.join(__dirname, './webpack.web.config.js')
-        }
-      // node: {
-      //   extensions: ['.js', 'jsx', '.ts', '.tsx']
-      // }
+      node: {
+        extensions: ['.js', 'jsx', '.ts', '.tsx']
+      }
     },
     react: {
       version: 'detect'
@@ -50,14 +49,16 @@ module.exports = {
   },
   rules: {
     // eslint official
+    'newline-before-return': 'error',
     'no-console': 'warn',
-    "no-unused-vars": "error",
+    'require-yield': 'error',
 
     // @typescript-eslint
-    "@typescript-eslint/camelcase": "off",
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
-    '@typescript-eslint/no-parameter-properties': 'off',
+    indent: 'off',
+    '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/no-unnecessary-type-assertion': 'error',
 
     // prefer-arrow
     'prefer-arrow/prefer-arrow-functions': [
@@ -98,14 +99,16 @@ module.exports = {
     ],
     'import/prefer-default-export': 'off',
 
-    "prettier/prettier": [
-      "error",
-      {
+    // prettier
+    'prettier/prettier': [
+      'error', {
         bracketSpacing: true,
         printWidth: 80,
-        tabWidth: 2,
+        semi: true,
+        singleQuote: true,
+        trailingComma: 'all',
         useTabs: false
       }
     ]
   }
-}
+};
