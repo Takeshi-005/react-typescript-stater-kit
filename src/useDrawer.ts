@@ -1,3 +1,14 @@
+/*
+*+ Usage
+*   const {
+    drawerState,
+    closeDrawer,
+    drawerContent,
+    openDrawer,
+  } = useDrawer(DrawerContents, false, DRAWER_TYPE.PROFILE)
+*/
+
+
 import {
   useState,
   useCallback,
