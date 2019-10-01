@@ -3,22 +3,25 @@ import {
   useCallback,
   FunctionComponent
 } from "react";
+import { getDocumentScroll } from 'utilities/getDocumentScroll';
 
 
-export interface Props  {
-    contentType:string;
+export interface Props<T> {
+    contentType:T;
     passVals:　{};
-    openDrawer: (contentType?: string, passVals?: any) => void;
+    openDrawer: (contentType?: T, passVals?: any) => void;
 }
 
-const useDrawer = (
-  drawerContents:FunctionComponent<Props> | Function = () => null,
+const useDrawer = <T extends string>(
+  drawerContents:FunctionComponent<Props<T>> | Function = () => null,
   isOpen:boolean,
-) => {
+  contentType:T,
+)=> {
   const [drawerState, updateDrawerState] = useState({
     isOpen: isOpen || false,
-    contentType: "",
+    contentType,
     passVals: "",
+    scrollPosY: 0,
   });
 
   const closeDrawer = useCallback(() => {
@@ -28,11 +31,12 @@ const useDrawer = (
     })
   }, [drawerState])
 
-  const openDrawer = useCallback((contentType:string = "", passVals="") => {
+  const openDrawer = useCallback((contentType:T, passVals="") => {
     updateDrawerState({
       ...drawerState,
       contentType,
       passVals,
+      scrollPosY: getDocumentScroll().y,
       isOpen: true,
     })
   }, [drawerState])
@@ -52,7 +56,7 @@ const useDrawer = (
       contentType: drawerState.contentType,
       passVals: drawerState.passVals,
       openDrawer
-    }),
+    }) as Props<T>,
     drawerState,
   }
 }
