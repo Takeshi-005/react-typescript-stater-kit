@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "id": 12,
+      "title": "T-Shirt Top",
+      "description": "4 MSL",
+      "availableSizes": ["S", "XS"]
+    }
+  ]
+}
