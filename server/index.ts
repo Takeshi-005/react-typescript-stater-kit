@@ -21,5 +21,5 @@ const port = 8888;
 const host = 'localhost';
 
 app.listen(port, host, () => {
-  console.log(`Running on http:://${host}:${port}`);
+  console.log(`Running on http://${host}:${port}`);
 });
