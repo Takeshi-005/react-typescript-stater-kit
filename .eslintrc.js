@@ -4,20 +4,20 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true,
+    node: true
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
-    'plugin:import/errors',
-    'plugin:import/warnings',
+    "plugin:import/errors",
+    "plugin:import/warnings",
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
     "prettier/react"
   ],
   globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-    '__DEV__': true
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
+    __DEV__: true
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -25,43 +25,39 @@ module.exports = {
       jsx: true
     },
     project: "./tsconfig.json",
-    sourceType: 'module'
+    sourceType: "module"
   },
-  plugins: [
-    "@typescript-eslint",
-    'react',
-    'prefer-arrow',
-    'react-hooks'
-  ],
+  plugins: ["@typescript-eslint", "react", "prefer-arrow", "react-hooks"],
   root: true, //このプロジェクト内のみに適用 (デフォルトは親ディレクトリまで遡って適用する)
   settings: {
     // 'import/resolver': {
-      // eslint-import-resolver-webpackを使用する
-      // webpack: {
-      //   config: path.join(__dirname, './webpack.web.config.js')
-      //   }
-      // node: {
-      //   extensions: ['.js', 'jsx', '.ts', '.tsx']
-      // }
+    // eslint-import-resolver-webpackを使用する
+    // webpack: {
+    //   config: path.join(__dirname, './webpack.web.config.js')
+    //   }
+    // node: {
+    //   extensions: ['.js', 'jsx', '.ts', '.tsx']
+    // }
     // },
     react: {
-      version: 'detect'
+      version: "detect"
     }
   },
   rules: {
     // eslint official
-    'no-console': 'warn',
-    "no-unused-vars": "error",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
 
     // @typescript-eslint
     "@typescript-eslint/camelcase": "off",
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'off',
-    '@typescript-eslint/no-parameter-properties': 'off',
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-parameter-properties": "off",
+    '@typescript-eslint/prefer-interface': 'off',
 
     // prefer-arrow
-    'prefer-arrow/prefer-arrow-functions': [
-      'error',
+    "prefer-arrow/prefer-arrow-functions": [
+      "error",
       {
         disallowPrototype: true,
         singleReturnOnly: true,
@@ -70,34 +66,34 @@ module.exports = {
     ],
 
     // react
-    'react/jsx-filename-extension': [
-      'error',
+    "react/jsx-filename-extension": [
+      "error",
       {
-        extensions: ['jsx', 'tsx']
+        extensions: ["jsx", "tsx"]
       }
     ],
-    'react/jsx-one-expression-per-line': 'off',
-    'react/jsx-uses-react': 'error',
-    'react/jsx-uses-vars': 'error',
-    'react/prop-types': 'off',
-    'react/prefer-stateless-function': 'off',
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/prop-types": "off",
+    "react/prefer-stateless-function": "off",
 
     // react hooks
-    'react-hooks/rules-of-hooks': 'error',
-    "react-hooks/exhaustive-deps": 'warn',
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
 
     // import
-    'import/extensions': [
-      'error',
-      'always',
+    "import/extensions": [
+      "error",
+      "always",
       {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never'
+        js: "never",
+        jsx: "never",
+        ts: "never",
+        tsx: "never"
       }
     ],
-    'import/prefer-default-export': 'off',
+    "import/prefer-default-export": "off",
 
     "prettier/prettier": [
       "error",
@@ -111,4 +107,4 @@ module.exports = {
       }
     ]
   }
-}
+};
