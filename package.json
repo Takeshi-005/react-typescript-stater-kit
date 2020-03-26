@@ -72,14 +72,9 @@
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-standard": "^18.3.0",
-    "stylelint-order": "^3.1.0",
-    "ts-node-dev": "1.0.0-pre.44"
+    "stylelint-order": "^3.1.0"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "git add"
-    ],
     "*.css": [
       "stylelint --fix",
       "git add"

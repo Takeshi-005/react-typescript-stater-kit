@@ -8,30 +8,24 @@
   } = useDrawer(DrawerContents, false, DRAWER_TYPE.PROFILE)
 */
 
-
-import {
-  useState,
-  useCallback,
-  FunctionComponent
-} from "react";
+import { useState, useCallback, FunctionComponent } from 'react';
 import { getDocumentScroll } from 'utilities/getDocumentScroll';
 
-
 export interface Props<T> {
-    contentType:T;
-    passVals:　{};
-    openDrawer: (contentType?: T, passVals?: any) => void;
+  contentType: T;
+  passVals: {};
+  openDrawer: (contentType?: T, passVals?: any) => void;
 }
 
 const useDrawer = <T extends string>(
-  drawerContents:FunctionComponent<Props<T>> | Function = () => null,
-  isOpen:boolean,
-  contentType:T,
-)=> {
+  drawerContents: FunctionComponent<Props<T>> | Function = () => null,
+  isOpen: boolean,
+  contentType: T,
+) => {
   const [drawerState, updateDrawerState] = useState({
     isOpen: isOpen || false,
     contentType,
-    passVals: "",
+    passVals: '',
     scrollPosY: 0,
   });
 
@@ -39,25 +33,28 @@ const useDrawer = <T extends string>(
     updateDrawerState({
       ...drawerState,
       isOpen: false,
-    })
-  }, [drawerState])
+    });
+  }, [drawerState]);
 
-  const openDrawer = useCallback((contentType:T, passVals="") => {
-    updateDrawerState({
-      ...drawerState,
-      contentType,
-      passVals,
-      scrollPosY: getDocumentScroll().y,
-      isOpen: true,
-    })
-  }, [drawerState])
+  const openDrawer = useCallback(
+    (contentType: T, passVals = '') => {
+      updateDrawerState({
+        ...drawerState,
+        contentType,
+        passVals,
+        scrollPosY: getDocumentScroll().y,
+        isOpen: true,
+      });
+    },
+    [drawerState],
+  );
 
-  const toggleDrawer = useCallback( () => {
+  const toggleDrawer = useCallback(() => {
     updateDrawerState({
       ...drawerState,
       isOpen: !drawerState.isOpen,
     });
-  }, [drawerState])
+  }, [drawerState]);
 
   return {
     openDrawer,
@@ -66,10 +63,10 @@ const useDrawer = <T extends string>(
     drawerContent: drawerContents({
       contentType: drawerState.contentType,
       passVals: drawerState.passVals,
-      openDrawer
+      openDrawer,
     }) as Props<T>,
     drawerState,
-  }
-}
+  };
+};
 
 export default useDrawer;

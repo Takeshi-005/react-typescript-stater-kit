@@ -4,8 +4,8 @@ import * as Action from "../Constants";
 import { getAction } from "../actions/Actions";
 import { getApi } from "../api/api";
 
-function* runGerSearchItems(action: ReturnType<typeof getAction.start>) {
-  const { params } = action.payload
+function* api(action: ReturnType<typeof getAction.start>) {
+  const { params } = action.payload;
   try {
     const api = getApi();
     const result = yield call(api, params);
@@ -17,5 +17,5 @@ function* runGerSearchItems(action: ReturnType<typeof getAction.start>) {
 }
 
 export default function* root() {
-  yield all([takeLatest(Action.GET_ACTION_START, runGerSearchItems)]);
+  yield all([takeLatest(Action.GET_ACTION_START, api)]);
 }
