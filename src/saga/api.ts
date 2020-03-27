@@ -1,21 +1,20 @@
 import { all, call, put, takeLatest } from "redux-saga/effects";
 
-import * as Action from "../Constants";
-import { getAction } from "../actions/Actions";
-import { getApi } from "../api/api";
+import { ActionTypes, actionApi } from "../actions/api";
+import { api as getApi} from '../api'
 
-function* api(action: ReturnType<typeof getAction.start>) {
-  const { params } = action.payload;
+function* fetch(action: ReturnType<typeof actionApi.start>) {
+  // const { params } = action.payload;
   try {
     const api = getApi();
-    const result = yield call(api, params);
+    const result = yield call(api, {});
 
-    yield put(getAction.succeed(result));
+    yield put(actionApi.succeed(result));
   } catch (error) {
-    yield put(getAction.fail(error));
+    yield put(actionApi.fail(error));
   }
 }
 
 export default function* root() {
-  yield all([takeLatest(Action.GET_ACTION_START, api)]);
+  yield all([takeLatest(ActionTypes.START , fetch)]);
 }
