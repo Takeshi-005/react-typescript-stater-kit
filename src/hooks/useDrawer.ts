@@ -9,12 +9,12 @@
 */
 
 import { useState, useCallback, FunctionComponent } from 'react';
-import { getDocumentScroll } from 'utilities/getDocumentScroll';
+import { getDocumentScroll } from '../utilities/getDocumentScroll';
 
 export interface Props<T> {
   contentType: T;
   passVals: {};
-  openDrawer: (contentType?: T, passVals?: any) => void;
+  // openDrawer: (contentType?: T, passVals?: any) => void;
 }
 
 const useDrawer = <T extends string>(
@@ -63,7 +63,6 @@ const useDrawer = <T extends string>(
     drawerContent: drawerContents({
       contentType: drawerState.contentType,
       passVals: drawerState.passVals,
-      openDrawer,
     }) as Props<T>,
     drawerState,
   };

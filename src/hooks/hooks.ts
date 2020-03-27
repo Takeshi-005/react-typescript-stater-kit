@@ -1,12 +1,14 @@
-// import { useDispatch, useSelector } from 'react-redux';
+import { actionApi } from './../actions/api';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { RootState } from '../reducers/index';
+import { ApiState } from '../../types/api';
 
-// export const useGetName = () => {
-//   const dispatch = useDispatch();
-//   const onChange = () => dispatch(getName.start()); // action
-//   const value = useSelector<RootState, GetNameState>( // Types State
-//     state => state.name,
-//     shallowEqual,
-//   );
+export const useFetchApi = () => {
+  const dispatch = useDispatch();
+  const onChange = () => dispatch(actionApi.start()); // action
+  const value = useSelector<RootState, ApiState>( // Types State
+    state => state.apiRaducer, shallowEqual,
+  );
 
-//   return { value, onChange };
-// };
+  return { value, onChange };
+};
