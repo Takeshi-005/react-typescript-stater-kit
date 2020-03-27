@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from "redux-saga";
+import rootSaga from "./saga/rootSaga";
+
 import App from './App';
 import reducer from './reducers/index';
 
@@ -13,11 +16,16 @@ const composeEnhancers =
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 /* eslint-enable */
+const sagaMiddleWare = createSagaMiddleware();
+const enhancer = composeEnhancers(applyMiddleware(sagaMiddleWare));
 
-const enhancer = composeEnhancers(
-  applyMiddleware(),
-  // other store enhancers if any
-);
 const store = createStore(reducer, enhancer);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
+
+sagaMiddleWare.run(rootSaga);
