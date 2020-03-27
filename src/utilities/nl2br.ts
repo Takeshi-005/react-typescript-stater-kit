@@ -1,5 +1,5 @@
 import React from 'react';
-export const nl2br = (s: string, idx) => {
+export const nl2br = (s: string, idx: number) => {
   const regex = /(\n)/g;
   s.replace(/\r?\n/, '<br>');
 
