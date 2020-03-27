@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import state, { State } from './state';
+import apiRaducer from './api';
+import { ApiState } from '../../types/api';
+
 
 export interface RootState {
-  state: State;
+  apiRaducer: ApiState;
 }
 
 export default combineReducers({
-  state,
+  apiRaducer,
 });
