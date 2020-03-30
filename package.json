@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.13",
-    "@types/react": "^16.9.2",
     "@types/react-dom": "16.8.4",
     "@types/react-redux": "^7.1.2",
     "@types/react-router": "^5.0.3",
@@ -32,7 +31,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "lint": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'; stylelint 'src/**/*.css'"
+    "lint": "eslint --ext ./ 'src/**/*.{js,jsx,ts,tsx}'; stylelint 'src/**/*.css'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,10 +57,21 @@
     "@babel/plugin-proposal-optional-chaining": "7.9.0",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-typescript": "7.3.3",
+    "@storybook/addon-a11y": "5.3.17",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-docs": "5.3.17",
+    "@storybook/addon-info": "5.3.17",
+    "@storybook/addon-knobs": "5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/preset-create-react-app": "2.1.1",
+    "@storybook/react": "^5.3.17",
     "@types/node": "12.0.2",
+    "@types/react": "16.9.27",
     "@types/styled-components": "5.0.1",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
+    "babel-loader": "^8.1.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.18.2",
@@ -71,12 +83,17 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "prettier": "^1.18.2",
     "prettier-stylelint": "^0.4.2",
+    "react-docgen-typescript-loader": "3.7.2",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.1.0"
   },
   "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ],
     "*.css": [
       "stylelint --fix",
       "git add"
