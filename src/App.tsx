@@ -1,8 +1,8 @@
 import React from 'react';
-import { useFetchApi } from './hooks/hooks'
+import { useFetchApi } from './hooks/hooks';
 
 const App: React.FC = () => {
-  const {onChange, value} = useFetchApi();
+  const { onChange } = useFetchApi();
 
   return (
     <div className="App">

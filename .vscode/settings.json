@@ -8,9 +8,5 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.tslint": true,
-    "source.fixAll": true
-  }
+  "git.ignoreLimitWarning": true
 }

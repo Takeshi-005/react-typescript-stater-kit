@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   env: {
     browser: true,
@@ -30,15 +28,15 @@ module.exports = {
   plugins: ["@typescript-eslint", "react", "prefer-arrow", "react-hooks"],
   root: true, //このプロジェクト内のみに適用 (デフォルトは親ディレクトリまで遡って適用する)
   settings: {
-    // 'import/resolver': {
-    // eslint-import-resolver-webpackを使用する
-    // webpack: {
-    //   config: path.join(__dirname, './webpack.web.config.js')
-    //   }
-    // node: {
-    //   extensions: ['.js', 'jsx', '.ts', '.tsx']
-    // }
-    // },
+    "import/resolver": {
+      // eslint-import-resolver-webpackを使用する
+      // webpack: {
+      //   config: path.join(__dirname, './webpack.config.js')
+      //   }
+      node: {
+        extensions: [".js", "jsx", ".ts", ".tsx"]
+      }
+    },
     react: {
       version: "detect"
     }
@@ -53,7 +51,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/no-parameter-properties": "off",
-    '@typescript-eslint/prefer-interface': 'off',
+    "@typescript-eslint/prefer-interface": "off",
 
     // prefer-arrow
     "prefer-arrow/prefer-arrow-functions": [
@@ -100,7 +98,6 @@ module.exports = {
       {
         bracketSpacing: true,
         printWidth: 80,
-        semi: true,
         singleQuote: true,
         tabWidth: 2,
         useTabs: false
