@@ -7,7 +7,8 @@ export const useFetchApi = () => {
   const dispatch = useDispatch();
   const onChange = () => dispatch(actionApi.start()); // action
   const value = useSelector<RootState, ApiState>( // Types State
-    state => state.apiRaducer, shallowEqual,
+    state => state.apiRaducer,
+    shallowEqual
   );
 
   return { value, onChange };
