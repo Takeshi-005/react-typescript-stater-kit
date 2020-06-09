@@ -1,15 +1,16 @@
-import { actionApi } from './../actions/api';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { getZipcode, Params } from '../actions/zipcode';
 import { RootState } from '../reducers/index';
-import { ApiState } from '../../types/api';
+import { ZipCodeState } from '../reducers/zipcode';
 
-export const useFetchApi = () => {
+export const useGetZipcode = () => {
   const dispatch = useDispatch();
-  const onChange = () => dispatch(actionApi.start()); // action
-  const value = useSelector<RootState, ApiState>( // Types State
-    state => state.apiRaducer,
+  const onChange = (params: Params) => dispatch(getZipcode.start(params));
+  const onDelete = (index: number) => dispatch(getZipcode.delete(index));
+  const value = useSelector<RootState, ZipCodeState>(
+    state => state.zipcodeReducer,
     shallowEqual
   );
 
-  return { value, onChange };
+  return { value, onChange, onDelete };
 };

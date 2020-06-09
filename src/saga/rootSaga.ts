@@ -1,9 +1,9 @@
-import { all, fork } from "redux-saga/effects";
-import saga from "./api";
+import { all, fork } from 'redux-saga/effects';
+import zipcode from './zipcode';
 
 /**
  * rootSaga
  */
 export default function* rootSaga() {
-  yield all([fork(saga)]);
+  yield all([fork(zipcode)]);
 }

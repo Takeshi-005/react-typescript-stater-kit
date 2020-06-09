@@ -12,7 +12,7 @@ interface Props {
   className?: string;
   /** ボタンのスタイルを指定する */
   types?: keyof typeof BUTTON;
-  handleClick?: (e: React.MouseEvent) => void;
+  handleClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 // ______________________________________________________

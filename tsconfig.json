@@ -17,8 +17,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "outDir": "build/",
+    "outDir": "build",
     "resolveJsonModule": true
+    // "rootDirs": ["src"]
   },
   "include": [
     "src"

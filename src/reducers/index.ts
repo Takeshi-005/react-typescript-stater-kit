@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
-import apiRaducer from './api';
-import { ApiState } from '../../types/api';
-
+import zipcodeReducer, { ZipCodeState } from './zipcode';
 
 export interface RootState {
-  apiRaducer: ApiState;
+  zipcodeReducer: ZipCodeState;
 }
 
 export default combineReducers({
-  apiRaducer,
+  zipcodeReducer
 });

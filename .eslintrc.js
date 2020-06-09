@@ -2,7 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
@@ -22,10 +23,17 @@ module.exports = {
     ecmaFeatures: {
       jsx: true
     },
-    project: "./tsconfig.json",
-    sourceType: "module"
+    project: './tsconfig.json',
+    sourceType: 'module'
   },
-  plugins: ["@typescript-eslint", "react", "prefer-arrow", "react-hooks"],
+  plugins: [
+    '@typescript-eslint',
+    'jest',
+    'prettier',
+    'prefer-arrow',
+    'react',
+    'react-hooks'
+  ],
   root: true, //このプロジェクト内のみに適用 (デフォルトは親ディレクトリまで遡って適用する)
   settings: {
     "import/resolver": {
@@ -43,8 +51,9 @@ module.exports = {
   },
   rules: {
     // eslint official
-    "no-console": "warn",
-    "no-unused-vars": "warn",
+    'newline-before-return': 'error',
+    'no-console': 'warn',
+    'require-yield': 'error',
 
     // @typescript-eslint
     "@typescript-eslint/camelcase": "off",
@@ -52,6 +61,12 @@ module.exports = {
     "@typescript-eslint/explicit-member-accessibility": "off",
     "@typescript-eslint/no-parameter-properties": "off",
     "@typescript-eslint/prefer-interface": "off",
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: '[Rr]eact'
+      }
+    ],
 
     // prefer-arrow
     "prefer-arrow/prefer-arrow-functions": [
@@ -64,10 +79,10 @@ module.exports = {
     ],
 
     // react
-    "react/jsx-filename-extension": [
-      "error",
+    'react/jsx-filename-extension': [
+      'error',
       {
-        extensions: ["jsx", "tsx"]
+        extensions: ['jsx', 'tsx']
       }
     ],
     "react/jsx-one-expression-per-line": "off",
@@ -91,11 +106,27 @@ module.exports = {
         tsx: "never"
       }
     ],
-    "import/prefer-default-export": "off",
-
-    "prettier/prettier": [
-      "error",
+    'import/no-extraneous-dependencies': [
+      'error',
       {
+        devDependencies: [
+          '.storybook/**',
+          'stories/**',
+          '**/*/*.story.*',
+          '**/*/*.stories.*',
+          '**/__specs__/**',
+          '**/*/*.spec.*',
+          '**/__tests__/**',
+          '**/*/*.test.*',
+          'src/setupTests.*'
+        ]
+      }
+    ],
+    'import/prefer-default-export': 'off',
+
+    // prettier
+    'prettier/prettier': [
+      'error', {
         bracketSpacing: true,
         printWidth: 80,
         singleQuote: true,

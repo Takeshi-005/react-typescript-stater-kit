@@ -1,0 +1,6 @@
+export const GET_ZIP_CODE = {
+  START: 'ZIP_CODE/START',
+  SUCCEED: 'ZIP_CODE/SUCCEED',
+  FAIL: 'ZIP_CODE/FAIL',
+  DELETE: 'ZIP_CODE/DELETE'
+} as const;
