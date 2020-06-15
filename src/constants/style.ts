@@ -10,3 +10,9 @@ export const BUTTON = {
     bg: '#ff0'
   }
 } as const;
+
+export const COLOR = {
+  link: '#f60',
+  emphasis: '#ff0',
+  border: '#f4f5f6'
+};

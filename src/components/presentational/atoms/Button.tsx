@@ -1,11 +1,11 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { BUTTON } from '../constants/style';
+import { BUTTON } from '../../../constants/style';
 
 // ______________________________________________________
 //
 // @ Types
-interface Props {
+type Props = {
   /** 表示するテキスト */
   text: string;
   /** styled-components */
@@ -13,7 +13,7 @@ interface Props {
   /** ボタンのスタイルを指定する */
   types?: keyof typeof BUTTON;
   handleClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
+};
 
 // ______________________________________________________
 //

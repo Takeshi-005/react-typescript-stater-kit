@@ -25,17 +25,14 @@ const zipcodeReducer: Reducer<ZipCodeState, ZipcodeAction> = (
     case ActionType.START:
       return {
         ...state,
+        error: null,
         params: action.payload
       };
 
     case ActionType.SUCCEED:
-      const value = {
-        ...action.payload.result
-      };
-
       return {
         ...state,
-        result: [...state.result, value]
+        result: [...state.result, action.payload.result]
       };
 
     case ActionType.DELETE:

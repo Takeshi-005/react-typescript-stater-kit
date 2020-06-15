@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './Button';
+import Button from './atoms/Button';
 
 // --------------------------------------------------
 //
@@ -22,16 +22,15 @@ const Area: React.FC<Props> = React.memo(
     const hanleClick = React.useCallback(() => {
       props.handleDelete(props.i);
     }, [props]);
-    console.log('render');
 
     return (
       <>
         <div>
           都道府県: {props.area.pref}
           <br />
-          市区町村: {props.area.city}
+          市区町村1: {props.area.city}
           <br />
-          市区町村: {props.area.town}
+          市区町村2: {props.area.town}
           <br />
           <Button text="削除" handleClick={hanleClick} />
         </div>
