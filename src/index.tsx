@@ -6,9 +6,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './saga/rootSaga';
 import App from './App';
-import Header from './components/container/organisms/Header';
-import Footer from './components/container/organisms/Footer';
 import reducer from './reducers/index';
+import { GlobalStyle } from './styles/baseStyle';
 
 /* eslint-disable no-underscore-dangle, @typescript-eslint/no-explicit-any */
 const composeEnhancers =
@@ -26,9 +25,8 @@ const store = createStore(reducer, enhancer);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Header />
+      <GlobalStyle />
       <App />
-      <Footer />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

@@ -5,6 +5,7 @@ import { useGetZipcode } from '../../../../hooks/hooks';
 import { Params } from '../../../../actions/zipcode';
 import { ZipCodeState } from '../../../../reducers/zipcode';
 import { RouteComponentProps } from 'react-router';
+import Main from '../../../templates/Main';
 
 // ______________________________________________________
 //
@@ -23,25 +24,34 @@ type Props = ContainerProps & {
   };
 };
 
+// ______________________________________________________
+//
+// @ Container
 const Container: React.FC<ContainerProps> = props => {
   const [state, setState] = React.useState({
     zipcode: ''
   });
   const { onChange, onDelete, value } = useGetZipcode();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setState({
-      ...state,
-      [e.currentTarget.name]: e.currentTarget.value
-    });
+  const handleChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setState({
+        ...state,
+        [e.currentTarget.name]: e.currentTarget.value
+      });
+    },
+    [state]
+  );
 
   return (
-    <StyledComponent
-      {...props}
-      params={state}
-      handleChange={handleChange}
-      useZipCode={{ onChange, onDelete, value }}
-    />
+    <Main>
+      <StyledComponent
+        {...props}
+        params={state}
+        handleChange={handleChange}
+        useZipCode={{ onChange, onDelete, value }}
+      />
+    </Main>
   );
 };
 
@@ -55,6 +65,12 @@ const Component: React.FC<Props> = props => (
       <button onClick={() => props.useZipCode.onChange(props.params)}>
         FetchApi
       </button>
+      {props.useZipCode.value.error && (
+        <>
+          <br />
+          {props.useZipCode.value.error.message}
+        </>
+      )}
     </section>
     {props.useZipCode.value.result.map((item, i) => (
       <Area

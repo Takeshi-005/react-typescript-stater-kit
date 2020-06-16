@@ -15,6 +15,7 @@ export type MyRouteProps = RouteProps & {
   component: React.FC<PropsWithRoutes>;
   naviText?: string;
   path: string;
+  exact: boolean;
   routes?: MyRouteProps[];
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RouteComponentProps } from 'react-router';
+import Main from '../../../templates/Main';
 
 // ______________________________________________________
 //
@@ -19,14 +20,14 @@ const Container: React.FC<ContainerProps> = props => {
 //
 // @ Component
 const Component: React.FC<Props> = props => (
-  <div className={props.className}>Home</div>
+  <Main>
+    <div className={props.className}>Main</div>
+  </Main>
 );
 
 //______________________________________________________
 //
 // @ StyledComponent
-const StyledComponent = styled(Component)`
-gb
-`;
+const StyledComponent = styled(Component)``;
 
 export default Container;

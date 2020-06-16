@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { COLOR } from '../../../constants/style';
-import { routes } from '../../../routes/routes';
+
+import { COLOR } from '../../../../styles/style';
+import { routes } from '../../../../routes/routes';
+import Link from './NavLink';
 
 // ______________________________________________________
 //
@@ -21,9 +22,12 @@ const Header: React.FC<Props> = props => (
         {routes
           .filter(item => item.naviText)
           .map(item => (
-            <li key={item.path}>
-              <Link to={item.path}>{item.naviText}</Link>
-            </li>
+            <Link
+              key={item.path}
+              path={item.path}
+              exact={item.exact}
+              naviText={item.naviText ?? ''}
+            />
           ))}
       </ul>
     </nav>
@@ -35,4 +39,10 @@ const Header: React.FC<Props> = props => (
 // @ StyledView
 export default styled(Header)`
   border-bottom: 1px solid ${COLOR.border};
+  padding: 16px;
+  > nav {
+    > ul {
+      display: flex;
+    }
+  }
 `;
