@@ -6,26 +6,29 @@ import * as ActionType from './zipcodeConstants';
 export interface Params {
   zipcode: string;
 }
-export interface Result {
+
+export type Data = {
+  prefcode: string;
+  ja: {
+    prefecture: string;
+    address1: string;
+    address2: string;
+    address3: string;
+    address4: string;
+  };
+  en: {
+    prefecture: string;
+    address1: string;
+    address2: string;
+    address3: string;
+    address4: string;
+  };
+};
+
+export type Result = {
   code: string;
-  data: {
-    prefcode: string;
-    ja: {
-      prefecture: string;
-      address1: string;
-      address2: string;
-      address3: string;
-      address4: string;
-    };
-    en: {
-      prefecture: string;
-      address1: string;
-      address2: string;
-      address3: string;
-      address4: string;
-    };
-  }[];
-}
+  data: Data[];
+};
 
 export const getZipcode = {
   start: (params: Params) => ({

@@ -32,7 +32,7 @@ const Area: React.FC<Props> = React.memo(
           <br />
           市区町村2: {props.area.town}
           <br />
-          <Button text="削除" handleClick={hanleClick} />
+          <Button types="primary" text="削除" handleClick={hanleClick} />
         </div>
       </>
     );

@@ -40,7 +40,8 @@ const Container: React.FC<ContainerProps> = props => {
         [e.currentTarget.name]: e.currentTarget.value
       });
     },
-    [state]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []
   );
 
   return (
@@ -89,7 +90,7 @@ const Component: React.FC<Props> = props => (
 
 // ______________________________________________________
 //
-// @ StyledView
+// @ StyledComponent
 const StyledComponent = styled(Component)`
   background: #000;
 `;

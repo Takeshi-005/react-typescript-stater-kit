@@ -1,37 +1,55 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { BUTTON } from '../../../styles/style';
+// ______________________________________________________
+//
+// @ Constants
+const BUTTON = {
+  primary: {
+    color: 'rgb(255, 255, 255)',
+    bg: 'rgb(234, 53, 45)',
+    border: 'rgb(234, 53, 45)'
+  },
+  secondary: {
+    color: 'rgb(0,0,0)',
+    bg: '#ff0'
+  },
+  disabled: {
+    color: '#fff',
+    bg: '#ccc'
+  }
+} as const;
 
 // ______________________________________________________
 //
 // @ Types
+export type ButtonKeys = keyof typeof BUTTON;
+
 type Props = {
   /** 表示するテキスト */
   text: string;
   /** styled-components */
   className?: string;
   /** ボタンのスタイルを指定する */
-  types?: keyof typeof BUTTON;
+  types: ButtonKeys;
+  style?: {
+    widht: string;
+  };
   handleClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 // ______________________________________________________
 //
 // @ View
-const Button = (props: Props) => (
-  <StyledButton
-    className={props.className}
-    onClick={props.handleClick}
-    types={props.types}
-  >
+export const Button = (props: Props) => (
+  <button className={props.className} onClick={props.handleClick}>
     {props.text}
-  </StyledButton>
+  </button>
 );
 
 // ______________________________________________________
 //
-// @ StyledView
-const StyledButton = styled.button<Pick<Props, 'types'>>`
+// @ StyledComponent
+const StyledComponent = styled(Button)`
   background-color: ${props =>
     props.types ? BUTTON[props.types].bg : BUTTON.primary.bg};
   color: ${props =>
@@ -43,6 +61,7 @@ const StyledButton = styled.button<Pick<Props, 'types'>>`
   border-image: initial;
   border-radius: 4px;
   padding: 8px 10px;
+  width: ${props => props.style?.widht ?? '100%'}
   cursor: pointer;
   /* primaryのみ */
   ${props =>
@@ -52,4 +71,4 @@ const StyledButton = styled.button<Pick<Props, 'types'>>`
     `}
 `;
 
-export default Button;
+export default StyledComponent;

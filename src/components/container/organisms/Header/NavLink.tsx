@@ -37,7 +37,7 @@ export default styled(Component)`
   height: 100%;
   padding: 12px 0;
   > a {
-    padding: 16px;
+    padding: 8px;
   }
 
   &.active {

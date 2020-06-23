@@ -42,6 +42,7 @@ module.exports = {
       //   config: path.join(__dirname, './webpack.config.js')
       //   }
       node: {
+        paths: ["src"],
         extensions: [".js", "jsx", ".ts", ".tsx"]
       }
     },
