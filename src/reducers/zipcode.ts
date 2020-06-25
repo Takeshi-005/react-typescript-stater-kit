@@ -6,15 +6,12 @@ import { GET_ZIP_CODE as ActionType } from '../actions/zipcodeConstants';
 
 export interface ZipCodeState {
   params?: Params;
-  result: Result;
+  result: Result[];
   error?: AxiosError | null;
 }
 
 export const initialState: ZipCodeState = {
-  result: {
-    code: '',
-    data: []
-  }
+  result: []
 };
 
 const zipcodeReducer: Reducer<ZipCodeState, ZipcodeAction> = (

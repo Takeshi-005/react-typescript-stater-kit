@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Area from '../../../presentational/Area';
-import { useGetZipcode } from '../../../../hooks/hooks';
-import { Params } from '../../../../actions/zipcode';
-import { ZipCodeState } from '../../../../reducers/zipcode';
+import Area from 'components/presentational/Area';
+import { useGetZipcode } from 'hooks/hooks';
+import { Params } from 'actions/zipcode';
+import { ZipCodeState } from 'reducers/zipcode';
 import { RouteComponentProps } from 'react-router';
-import Main from '../../../templates/Main';
+import Main from 'components/templates/Main';
 
 // ______________________________________________________
 //
