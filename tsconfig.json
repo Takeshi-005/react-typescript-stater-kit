@@ -18,8 +18,9 @@
     "noEmit": true,
     "jsx": "preserve",
     "outDir": "build",
-    "resolveJsonModule": true
-    // "rootDirs": ["src"]
+    "resolveJsonModule": true,
+    "baseUrl":"./src",
+    "rootDirs": ["src", "stories"]
   },
   "include": [
     "src"

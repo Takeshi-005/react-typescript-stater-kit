@@ -39,17 +39,17 @@ type Props = {
 
 // ______________________________________________________
 //
-// @ View
-export const Button = (props: Props) => (
-  <button className={props.className} onClick={props.handleClick}>
+// @ Component
+export const Component = (props: Props) => (
+  <StyledComponent {...props} onClick={props.handleClick}>
     {props.text}
-  </button>
+  </StyledComponent>
 );
-
+// export default Button;
 // ______________________________________________________
 //
 // @ StyledComponent
-const StyledComponent = styled(Button)`
+const StyledComponent = styled.button<Props>`
   background-color: ${props =>
     props.types ? BUTTON[props.types].bg : BUTTON.primary.bg};
   color: ${props =>
@@ -71,4 +71,4 @@ const StyledComponent = styled(Button)`
     `}
 `;
 
-export default StyledComponent;
+export default Component;
