@@ -22,7 +22,7 @@ const BUTTON = {
 // ______________________________________________________
 //
 // @ Types
-export type ButtonKeys = keyof typeof BUTTON;
+export type Type = keyof typeof BUTTON;
 
 type Props = {
   /** 表示するテキスト */
@@ -30,7 +30,7 @@ type Props = {
   /** styled-components */
   className?: string;
   /** ボタンのスタイルを指定する */
-  types: ButtonKeys;
+  types: Type;
   style?: {
     widht: string;
   };
